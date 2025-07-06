@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PostInput from "../components/PostInput";
 
-const Post = ({ onPost }) => {
+const Post = () => {
   // logic
   const history = useNavigate();
   const [churead, setChuread] = useState("");
@@ -27,7 +27,6 @@ const Post = ({ onPost }) => {
     }
 
     // 빈 스트링이 아닌 경우
-    onPost(churead); // 부모에게 churead입력값 넘겨주기
     history("/"); // home화면으로 이동
   };
 

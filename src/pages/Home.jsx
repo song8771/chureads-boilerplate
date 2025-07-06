@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../components/layout/Header";
 import Nav from "../components/layout/Nav";
 import FeedItem from "../components/FeedItem";
 import { initialFeedList } from "../data/response";
 import { useNavigate } from "react-router-dom";
 
-const Home = ({ churead, editedItem, onEdit }) => {
+const Home = () => {
   // logic
   const history = useNavigate();
 
@@ -28,8 +28,6 @@ const Home = ({ churead, editedItem, onEdit }) => {
    */
 
   const handleEdit = (data) => {
-    // 인자, argument
-    onEdit(data); // 부모에게 수정할 객체 아이템 넘겨주기
     history("/edit"); // edit페이지로 이동
   };
 
@@ -47,33 +45,6 @@ const Home = ({ churead, editedItem, onEdit }) => {
     const data = await response.json();
     console.log("🚀 data:", data);
   };
-
-  // 진입시 딱 한번 실행
-  useEffect(() => {
-    if (!churead) return;
-    const newFeed = {
-      id: feedList.length + 1,
-      userName: "anonymous",
-      userProfileImage:
-        "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y",
-      churead: churead,
-      likeCount: 0,
-    };
-    // feedList에 객체 추가
-    setFeedList([newFeed, ...feedList]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    if (!editedItem) return;
-    //editedItem의 값이 있는경우
-    const resultFeedList = feedList.map((item) => {
-      if (item.id === editedItem.id) return editedItem;
-      return item;
-    });
-    setFeedList(resultFeedList);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editedItem]);
 
   // view
   return (

@@ -1,21 +1,16 @@
-import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PostInput from "../components/PostInput";
 
-const Edit = ({ editItem, onEdited }) => {
+const Edit = () => {
   // logic
   const history = useNavigate();
-  const [churead, setChuread] = useState("");
 
   const handleChange = (value) => {
-    setChuread(value);
+    console.log("🚀 ~ handleChange ~ value:", value);
   };
 
   const handleEdit = (event) => {
     event.preventDefault(); // 폼 제출시 새로고침 방지 메소드
-
-    const editedItem = { ...editItem, churead };
-    onEdited(editedItem);
     history("/"); // home화면으로 이동
   };
 
@@ -36,9 +31,11 @@ const Edit = ({ editItem, onEdited }) => {
           <form id="post" onSubmit={handleEdit}>
             {/* START: 사용자 입력 영역 */}
             <PostInput
-              defaultValue={editItem.churead}
-              userName={editItem.userName}
-              userProfileImage={editItem.userProfileImage}
+              defaultValue={"수정중"}
+              userName={"수정중"}
+              userProfileImage={
+                "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
+              }
               onChange={handleChange}
             />
             {/* END: 사용자 입력 영역 */}
