@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import PostInput from "../components/PostInput";
 import { useEffect } from "react";
 
 const Edit = () => {
   // logic
+  const { id } = useParams();
   const history = useNavigate();
 
   const handleChange = (value) => {
@@ -20,7 +21,8 @@ const Edit = () => {
   useEffect(() => {
     // 페이지 진입시 딱 한번 실행
     // TODO: 백엔드에 Get 요청
-  }, []);
+    console.log("🚀 ~ Edit ~ id:", id);
+  }, [id]);
 
   // view
   return (

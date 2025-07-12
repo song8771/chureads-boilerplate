@@ -12,7 +12,8 @@ const Home = () => {
   const [feedList, setFeedList] = useState(initialFeedList);
 
   const handleEdit = (data) => {
-    history("/edit"); // edit페이지로 이동
+    // TODO: 페이지 이동 url에 Param추가
+    history(`/edit/`); // edit페이지로 이동
   };
 
   const handleDelete = (selectedItem) => {
