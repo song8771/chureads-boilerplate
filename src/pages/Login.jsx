@@ -14,6 +14,10 @@ const Login = () => {
     // TODO: 로그인 기능 구현
   };
 
+  const handleGoogleLogin = () => {
+    // TODO: 구글 로그인 구현
+  };
+
   // view
   return (
     <div className="h-full flex flex-col justify-center">
@@ -45,16 +49,17 @@ const Login = () => {
             가입하기
           </Link>
         </div>
-        {/* <p className="text-gray-500 text-sm relative mb-4">
+        <p className="text-gray-500 text-sm relative mb-4">
           {" "}
           <i className="block w-full h-[1px] bg-churead-gray-300 bg-opacity-15 absolute top-1/2 transform -translate-y-1/2" />{" "}
           <span className="bg-churead-black relative z-10 px-2"> or </span>{" "}
-        </p> */}
+        </p>
         {/* START: 소셜 로그인 영역 */}
-        {/* <LoginButton
+        <LoginButton
           category="socialLogin"
           text="Continue with Google"
-        /> */}
+          onClick={handleGoogleLogin}
+        />
         {/* END: 소셜 로그인 영역 */}
       </div>
     </div>

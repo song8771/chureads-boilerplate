@@ -2,7 +2,7 @@ import React from "react";
 import { RiHeartLine, RiPencilFill } from "react-icons/ri";
 import { FaTrash } from "react-icons/fa6";
 
-const FeedItem = ({ data, onEdit, onDelete }) => {
+const FeedItem = ({ data, tags, isAuthor, onEdit, onDelete }) => {
   // logic
   const { userName, userProfileImage, churead, likeCount } = data;
 
@@ -29,6 +29,7 @@ const FeedItem = ({ data, onEdit, onDelete }) => {
           <div className="flex items-center">
             <span className="font-bold">{userName}</span>
             {/* START: 수정, 삭제 버튼 영역 */}
+            {/* TODO: 로그인된 사용자가 작성자인 경우에만 활성화 */}
             <div className="ml-auto flex gap-1">
               <button
                 type="button"
@@ -57,6 +58,20 @@ const FeedItem = ({ data, onEdit, onDelete }) => {
             <span>{likeCount}</span>
           </div>
           {/* END: 좋아요 영역 */}
+          {/* START: 태그 영역 */}
+          <div className="mt-2">
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="text-sm text-gray-400 cursor-pointer hover:text-gray-300"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          {/* END: 태그 영역 */}
         </div>
         {/* END: 콘텐츠 영역 */}
       </div>

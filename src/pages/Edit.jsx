@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import PostInput from "../components/PostInput";
+import { useEffect } from "react";
 
 const Edit = () => {
   // logic
@@ -11,8 +12,15 @@ const Edit = () => {
 
   const handleEdit = (event) => {
     event.preventDefault(); // 폼 제출시 새로고침 방지 메소드
+
+    // TODO: 백엔드에 Put 요청
     history("/"); // home화면으로 이동
   };
+
+  useEffect(() => {
+    // 페이지 진입시 딱 한번 실행
+    // TODO: 백엔드에 Get 요청
+  }, []);
 
   // view
   return (

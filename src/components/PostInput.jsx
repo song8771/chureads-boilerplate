@@ -19,7 +19,6 @@ const PostInput = ({
 
   // 진입시 딱 한번 실행
   useEffect(() => {
-    console.log("textareaRef", textareaRef);
     textareaRef.current && textareaRef.current.focus();
     const length = value.length;
     textareaRef.current &&

@@ -27,6 +27,8 @@ const Post = () => {
     }
 
     // 빈 스트링이 아닌 경우
+    // TODO: 백엔드에 Post 요청
+
     history("/"); // home화면으로 이동
   };
 
