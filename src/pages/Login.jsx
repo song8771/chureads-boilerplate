@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import InputField from "../components/InputField";
 import LoginButton from "../components/LoginButton";
 import { Link } from "react-router-dom";
@@ -6,25 +6,11 @@ import { Link } from "react-router-dom";
 const Login = () => {
   // logic
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const handleInputChange = (inputValue, field) => {
-    // field: 'email', 'password'
-    // const newFormData = { ...formData, [field]: inputValue };
-    // setFormData(newFormData);
-
-    if (field === "email") {
-      setEmail(inputValue);
-    } else {
-      setPassword(inputValue);
-    }
+    // TODO: 사용자 입력 기능 구현
   };
 
   const handleLogin = (event) => {
-    event.preventDefault(); // 폼 제출시 새로고침 방지 메소드
-    console.log("email", email);
-    console.log("password", password);
     // TODO: 로그인 기능 구현
   };
 
@@ -59,13 +45,16 @@ const Login = () => {
             가입하기
           </Link>
         </div>
-        <p className="text-gray-500 text-sm relative mb-4">
+        {/* <p className="text-gray-500 text-sm relative mb-4">
           {" "}
           <i className="block w-full h-[1px] bg-churead-gray-300 bg-opacity-15 absolute top-1/2 transform -translate-y-1/2" />{" "}
           <span className="bg-churead-black relative z-10 px-2"> or </span>{" "}
-        </p>
+        </p> */}
         {/* START: 소셜 로그인 영역 */}
-        <LoginButton category="socialLogin" text="Continue with Google" />
+        {/* <LoginButton
+          category="socialLogin"
+          text="Continue with Google"
+        /> */}
         {/* END: 소셜 로그인 영역 */}
       </div>
     </div>
