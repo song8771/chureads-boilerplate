@@ -1,11 +1,13 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import PostInput from "../components/PostInput";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { initialFeedList } from "../data/response";
 
 const Edit = () => {
   // logic
   const { id } = useParams();
   const history = useNavigate();
+  const [feedItem] = useState(initialFeedList[0]);
 
   const handleChange = (value) => {
     console.log("🚀 ~ handleChange ~ value:", value);
@@ -34,16 +36,17 @@ const Edit = () => {
         >
           취소
         </Link>
-        <h3 className="font-bold">새로운 스레드</h3>
+        <h3 className="font-bold">스레드 편집</h3>
       </header>
       <main className="h-full pt-[72px] pb-[88px] overflow-hidden">
         <div className="h-full overflow-auto">
           <form id="post" onSubmit={handleEdit}>
             {/* START: 사용자 입력 영역 */}
             <PostInput
-              defaultValue={"수정중"}
-              userName={"수정중"}
+              defaultValue={feedItem.content || ""}
+              userName={feedItem.userName || ""}
               userProfileImage={
+                feedItem.userProfileImage ||
                 "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
               }
               onChange={handleChange}

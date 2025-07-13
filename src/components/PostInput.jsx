@@ -25,6 +25,10 @@ const PostInput = ({
       textareaRef.current.setSelectionRange(length, length);
   }, [value.length]);
 
+  useEffect(() => {
+    setValue(defaultValue);
+  }, [defaultValue]);
+
   // view
   return (
     <div className="px-6 border-t border-churead-gray-300 border-opacity-15 pt-3">

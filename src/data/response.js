@@ -1,6 +1,6 @@
 export const initialFeedList = [
   {
-    id: 1,
+    _id: 1,
     userName: "chutzrit",
     userId: "ViISxUbVTCU381UGn5d0rQwyz11",
     userProfileImage: "https://i.ibb.co/JqB4C56/logo3.png",
@@ -9,7 +9,7 @@ export const initialFeedList = [
     likeCount: 82,
   },
   {
-    id: 2,
+    _id: 2,
     userName: "chutzrit",
     userProfileImage: "https://i.ibb.co/JqB4C56/logo3.png",
     userId: "ViISxUbVTCU381UGn5d0rQwyz11",
@@ -18,7 +18,7 @@ export const initialFeedList = [
     likeCount: 45,
   },
   {
-    id: 3,
+    _id: 3,
     userName: "dream_chaser",
     userProfileImage:
       "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y",
@@ -28,7 +28,7 @@ export const initialFeedList = [
     likeCount: 38,
   },
   {
-    id: 4,
+    _id: 4,
     userName: "chutzrit",
     userProfileImage: "https://i.ibb.co/JqB4C56/logo3.png",
     userId: "ViISxUbVTCU381UGn5d0rQwyz11",
@@ -37,7 +37,7 @@ export const initialFeedList = [
     likeCount: 52,
   },
   {
-    id: 5,
+    _id: 5,
     userName: "positive_mind",
     userProfileImage:
       "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y",
@@ -47,7 +47,7 @@ export const initialFeedList = [
     likeCount: 41,
   },
   {
-    id: 6,
+    _id: 6,
     userName: "chutzrit",
     userProfileImage: "https://i.ibb.co/JqB4C56/logo3.png",
     userId: "ViISxUbVTCU381UGn5d0rQwyz11",
@@ -56,7 +56,7 @@ export const initialFeedList = [
     likeCount: 60,
   },
   {
-    id: 7,
+    _id: 7,
     userName: "future_self",
     userProfileImage:
       "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y",
@@ -66,7 +66,7 @@ export const initialFeedList = [
     likeCount: 33,
   },
   {
-    id: 8,
+    _id: 8,
     userName: "chutzrit",
     userProfileImage: "https://i.ibb.co/JqB4C56/logo3.png",
     userId: "ViISxUbVTCU381UGn5d0rQwyz11",
@@ -75,7 +75,7 @@ export const initialFeedList = [
     likeCount: 47,
   },
   {
-    id: 9,
+    _id: 9,
     userName: "inspire_daily",
     userProfileImage:
       "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y",
@@ -85,7 +85,7 @@ export const initialFeedList = [
     likeCount: 55,
   },
   {
-    id: 10,
+    _id: 10,
     userName: "chutzrit",
     userProfileImage: "https://i.ibb.co/JqB4C56/logo3.png",
     userId: "ViISxUbVTCU381UGn5d0rQwyz11",
