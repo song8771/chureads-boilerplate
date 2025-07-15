@@ -1,10 +1,10 @@
 import React from "react";
-import { RiHeartLine, RiPencilFill } from "react-icons/ri";
+import { RiHeartFill, RiHeartLine, RiPencilFill } from "react-icons/ri";
 import { FaTrash } from "react-icons/fa6";
 
-const FeedItem = ({ data, tags, isAuthor, onEdit, onDelete }) => {
+const FeedItem = ({ data, tags, isAuthor, currentUserId, onEdit, onDelete, onLike }) => {
   // logic
-  const { userName, userProfileImage, content, likeCount } = data;
+  const { _id, userName, userProfileImage, content, likeCount } = data;
 
   const handleDelete = () => {
     // confirm: 사용자에게 확인 | 취소 할수 있도록 선택하게 하는 알림창으로 boolean타입을 리턴함
@@ -53,9 +53,8 @@ const FeedItem = ({ data, tags, isAuthor, onEdit, onDelete }) => {
           <p className="pt-1 whitespace-break-spaces">{content}</p>
           {/* START: 좋아요 영역 */}
           <div className="flex items-center gap-1">
-            <button type="button" className="text-churead-gray-400">
-              <RiHeartLine />
-              {/* <RiHeartFill color="red" /> */}
+            <button type="button" className="text-churead-gray-400" onClick={() => onLike(_id)}>
+              {data.likedUsers.includes(currentUserId) ? <RiHeartFill color="red" /> : <RiHeartLine />}
             </button>
             <span>{likeCount}</span>
           </div>

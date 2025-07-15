@@ -22,6 +22,10 @@ const Home = () => {
     // TODO: 백엔드에 Delete 요청
   };
 
+  const handleLike = (selectedId) => {
+    console.log("🚀 ~ handleLike ~ selectedId:", selectedId)
+  }
+
   useEffect(() => {
     // 페이지 진입시 딱 한번 실행
     // TODO: 백엔드에 Get 요청
@@ -47,6 +51,7 @@ const Home = () => {
                 isAuthor={true}
                 onDelete={handleDelete}
                 onEdit={handleEdit}
+                onLike={handleLike}
               />
             ))}
           </ul>
