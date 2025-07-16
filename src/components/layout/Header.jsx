@@ -9,7 +9,7 @@ const Header = ({ isLoggedIn }) => {
           <img src="./images/logo.svg" className="mx-auto h-16" alt="로고" />
         </Link>
       </h1>
-      <div className="absolute top-1/2 tranform -translate-y-1/2 right-5 rounded-lg bg-white text-churead-black flex items-center px-2 text-sm">
+      <div className="absolute top-1/2 tranform -translate-y-1/2 right-5 rounded-lg bg-yellow-500 text-churead-black flex items-center px-2 text-sm">
         <button type="button" className="p-1">
           {isLoggedIn ? "로그아웃" : "로그인"}
         </button>
