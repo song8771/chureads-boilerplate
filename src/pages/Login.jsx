@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import InputField from "../components/InputField";
 import LoginButton from "../components/LoginButton";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,6 +16,8 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const isLogin = !!auth.currentUser; // 현재 로그인 상태 확인
+  
   const handleInputChange = (inputValue, field) => {
     if (field === "email") {
       setEmail(inputValue);
@@ -71,6 +73,11 @@ const Login = () => {
       // 에러 처리 로직
     }
   };
+
+  useEffect(() => {
+    isLogin && history("/"); // 이미 로그인 상태면 홈으로 이동
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // view
   return (
