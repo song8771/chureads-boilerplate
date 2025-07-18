@@ -6,6 +6,7 @@ import { initialTags } from "../data/response";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import useSSE from "../hooks/useSSE";
+import { use } from "react";
 
 
 const Home = () => {

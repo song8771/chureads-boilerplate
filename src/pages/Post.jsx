@@ -10,6 +10,7 @@ const Post = () => {
   const history = useNavigate();
   const currentUser = auth.currentUser; // 현재 로그인된 사용자 정보
   const [churead, setChuread] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (value) => {
     setChuread(value);
@@ -57,6 +58,8 @@ const Post = () => {
     // TODO: 백엔드에 Post 요청
 
     try { 
+      setIsLoading(true);
+
       const newItem = {
         userName: currentUser.displayName,
         userId: currentUser.uid,
@@ -73,6 +76,8 @@ const Post = () => {
       console.error("Error posting data:", error);
       alert("츄레드 작성에 실패했습니다. 다시 시도해주세요.");
       return;
+    } finally {
+      setIsLoading(false);
     }
     history("/"); // home화면으로 이동
   };
@@ -103,7 +108,7 @@ const Post = () => {
               <button
                 type="submit"
                 className="ml-auto px-5 py-2 bg-white text-churead-black rounded-3xl font-bold">
-                게시
+                {isLoading ? "게시 중..." : "게시하기"}
               </button>
             </div>
             {/* END: 게시 버튼 영역 */}
