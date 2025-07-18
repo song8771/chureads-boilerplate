@@ -5,6 +5,7 @@ import FeedItem from "../components/FeedItem";
 import { initialTags } from "../data/response";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
+import useSSE from "../hooks/useSSE";
 
 
 const Home = () => {
@@ -17,15 +18,44 @@ const Home = () => {
 
   const [feedList, setFeedList] = useState([]);
 
+  // SSE연결
+  const { isConnected } = useSSE()
+
   const handleEdit = (data) => {
     history(`/edit/${data._id}`); // edit페이지로 이동
   };
 
-  const handleDelete = (selectedItem) => {
-    const filterList = feedList.filter((item) => item.id !== selectedItem.id);
-    setFeedList(filterList);
+  // DELETE /posts/:id - 특정 게시물 삭제
+  const deletePost = async (id) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/posts/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error("게시물 삭제 실패:", error);
+    }
+  };
+
+  const handleDelete = async (selectedItem) => {
+    console.log("🚀 ~ handleDelete ~ selectedItem:", selectedItem)
 
     // TODO: 백엔드에 Delete 요청
+    const result = await deletePost(selectedItem._id);
+    console.log("🚀 ~ handleDelete ~ result:", result);
+
+    // UI 업데이트
+    const filterList = feedList.filter((item) => item._id !== selectedItem._id);
+    setFeedList(filterList);
   };
 
   const handleLike = (selectedId) => {
@@ -79,7 +109,7 @@ const Home = () => {
       {/* END: 헤더 영역 */}
       <main className="h-full overflow-auto">
         {/* TODO */}
-
+        <span className="block p-2 text-right text-sm"> {isConnected ? '🟢' : '🔴'} </span>
         <div>
           {/* START: 피드 영역 */}
           {feedList.length ? <ul>
